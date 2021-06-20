@@ -31,14 +31,11 @@ def form_barco(request):
     return render(request,'appQuat/form_barco.html',datos)
 
 
-def form_mod_barco(request):
-    datos={
-        'form':BarcoForm()
-    }
-    if request.method =='POST':
-        formulario = BarcoForm(request.POST)
-        if formulario.is_valid:
-            formulario.save()
-            datos['mensaje']='Guardados correctamente'
+def form_mod_barco(request, id):
 
-    return render(request,'appQuat/form_barco.html',datos)
+    barco= Barco.objects.get(nombre=id)
+    datos={
+        'form':BarcoForm(instance=barco)
+    }
+
+    return render(request,'appQuat/form_mod_barco.html',datos)
