@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  {% load static %}
+    <head>
+        <link rel="stylesheet" href="{% static 'appQuat/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'appQuat/css/font-awesome.css' %}">
+        <link rel="stylesheet" href="{% static 'appQuat/css/quat.css' %}">
+        <script src="{% static 'appQuat/js/jquery.min.js' %}"></script>
+        <script src="{% static 'appQuat/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'appQuat/js/jquery.validate.js' %}"></script>
+    </head>
+    <body>
+
+        <!-- MENU -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Astillero Quat</a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/galeria">Galeria</a></li>
+                <li><a href="/barcos">Barcos</a></li>
+              </ul>
+            </div>
+        </nav>
+
+
+        <div class="container">
+
+          <div class="row">
+            <h1>Listado de Barcos</h1>
+          </div>
+          <div class="row">
+            <table border=1>
+              <tr><td>Nombre</td><td>Año</td><td>Descripcion</td><td>Tipo</td></tr>
+              {% for barco in barcos %}
+              <tr>
+                  <td>{{barco.nombre}}</td>
+                  <td>{{barco.año}}</td>
+                  <td>{{barco.descripcion}}</td>
+                  <td>{{barco.tipo_barco}}</td>
+                  <td>
+
+                  </td>
+              </tr>
+              {% endfor %}
+            </table>
+
+          </div>
+       
+         
+
+          <footer class="footer">
+
+            <i class="icon-facebook-sign icon-4x"></i>
+            <i class="icon-twitter-sign icon-4x"></i>
+            <i class="icon-instagram icon-4x"></i>
+            <i class="icon-github icon-4x"></i>
+              Integrantes: Beatriz Tapia, Mario Venegas, @Copyrigth Derechos reservados
+          </footer>
+        </div>
+
+
+    </body>
+</html>
