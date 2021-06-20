@@ -1,7 +1,8 @@
 from appQuat.forms import BarcoForm
 from django.core.exceptions import RequestAborted
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Barco
+from .forms import BarcoForm
 
 # Create your views here.
 
@@ -37,5 +38,14 @@ def form_mod_barco(request, id):
     datos={
         'form':BarcoForm(instance=barco)
     }
-
+    if request.method =='POST':
+        formulario = BarcoForm(request.POST, instance=barco)
+        if formulario.is_valid:
+            formulario.save()
+            datos['mensaje']='Modificado correctamente'
     return render(request,'appQuat/form_mod_barco.html',datos)
+
+def form_del_barco(request,id):
+    barco=Barco.objects.get(nombre=id)
+    barco.delete()
+    return redirect(to="barcos")

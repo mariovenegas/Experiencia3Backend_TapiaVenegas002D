@@ -32,8 +32,8 @@
             <h1>Listado de Barcos</h1>
           </div>
           <div class="row">
-            <table border=1>
-              <tr><td>Nombre</td><td>Año</td><td>Descripcion</td><td>Tipo</td></tr>
+            <table class="table">
+              <tr><td>Nombre</td><td>Año</td><td>Descripcion</td><td>Tipo</td><td>Opciones</td></tr>
               {% for barco in barcos %}
               <tr>
                   <td>{{barco.nombre}}</td>
@@ -41,11 +41,13 @@
                   <td>{{barco.descripcion}}</td>
                   <td>{{barco.tipo_barco}}</td>
                   <td>
-
+                    <a href="{% url 'form_mod_barco' barco.nombre %}">Modificar</a>
+                    <a href="{% url 'form_del_barco' barco.nombre %}">Eliminar</a>
                   </td>
               </tr>
               {% endfor %}
             </table>
+            <a href="{% url 'form_barco'%}">Crear Barco</a>
 
           </div>
        
