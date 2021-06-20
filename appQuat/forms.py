@@ -4,5 +4,5 @@ from .models import Barco
 
 class BarcoForm(ModelForm):
     class Meta:
-        modelo= Barco
+        model= Barco
         fields =['nombre','año','descripcion','tipo_barco']

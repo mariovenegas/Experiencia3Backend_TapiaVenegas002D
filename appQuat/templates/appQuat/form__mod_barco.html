@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  {% load static %}
+    <head>
+        <link rel="stylesheet" href="{% static 'appQuat/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'appQuat/css/font-awesome.css' %}">
+        <link rel="stylesheet" href="{% static 'appQuat/css/quat.css' %}">
+        <script src="{% static 'appQuat/js/jquery.min.js' %}"></script>
+        <script src="{% static 'appQuat/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'appQuat/js/jquery.validate.js' %}"></script>
+    </head>
+    <body>
+
+        <!-- MENU -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">Astillero Quat</a>
+              </div>
+              <ul class="nav navbar-nav">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/galeria">Galeria</a></li>
+                <li><a href="/barcos">Barcos</a></li>
+              </ul>
+            </div>
+        </nav>
+
+
+        <div class="container">
+
+          <div class="row">
+            <h1>Creación de Barco</h1>
+          </div>
+          <div class="row">
+            <form method="post" action="" id="formulario">
+              {% csrf_token %}
+              <div class="form-group">
+                {{ form.as_table}}
+              </div>
+
+              <input type="submit" class="btn btn-danger" id="enviar" value="Modificar">
+              <input type="reset" class="btn bnt-primary" id="limpiar" value="Limpiar">
+              <div id="error" class="alert alert-danger" role="alert"></div>
+            </form>
+
+          </div>
+          <div class="alert alert-success" role="alert">
+            {{mensaje}}
+          </div>
+       
+         
+
+          <footer class="footer">
+
+            <i class="icon-facebook-sign icon-4x"></i>
+            <i class="icon-twitter-sign icon-4x"></i>
+            <i class="icon-instagram icon-4x"></i>
+            <i class="icon-github icon-4x"></i>
+              Integrantes: Beatriz Tapia, Mario Venegas, @Copyrigth Derechos reservados
+          </footer>
+        </div>
+
+
+    </body>
+</html>
